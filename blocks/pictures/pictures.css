@@ -1,0 +1,19 @@
+.pictures  {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(auto-fit, 1fr);
+    grid-column-gap: 1.125rem;
+    grid-row-gap: 1.3125rem;
+    box-sizing: border-box;
+    padding-top: 2.953125rem;
+}
+
+@media all and (max-width: 767px) {
+    .pictures {
+        grid-template-columns: repeat(1, 1fr);
+        grid-template-rows: repeat(auto-fit, 1fr);
+        grid-row-gap: 1.25rem;
+        padding-top: 2.25rem;
+    }
+}

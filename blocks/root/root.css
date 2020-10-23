@@ -1,0 +1,10 @@
+.root {
+    max-height: 100vh;
+    max-width: 882px; 
+}
+
+@media all and (max-width: 767px) {
+    .root {
+        max-width: 320px;
+    }
+}

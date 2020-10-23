@@ -1,0 +1,12 @@
+.header {
+    width: 100%;
+    padding-top: 2.8125rem;
+    box-sizing: border-box;
+    border-bottom: 1px solid #545454;
+}
+
+@media all and (max-width: 767px) {
+    .header {
+        padding-top: 1.75rem;
+    }
+}

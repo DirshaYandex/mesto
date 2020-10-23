@@ -1,0 +1,11 @@
+.profile__info {
+    display: flex;
+    flex-direction: column;
+    color: white;
+}
+
+@media all and (max-width: 767px) {
+    .profile__info {
+        padding-top: 0.640625rem;
+    }
+}

@@ -1,0 +1,9 @@
+.logo_place_header {
+    margin-bottom: 2.5375rem;
+}
+
+@media all and (max-width: 767px) {
+    .logo_place_header {
+      margin-bottom: 1.975rem;
+    }
+  }

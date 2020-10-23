@@ -1,17 +1,16 @@
 # Проект 4: Место
 
-### Обзор
+### Навыки
 
 * Figma
-* Картинки
+* HTML
+* CSS
+* GRID
+* FLEX
+* JavaScript
+* Адаптивная верстка
 
-**Figma**
+**Github**
 
-* [Ссылка на макет в Figma](https://www.figma.com/file/StZjf8HnoeLdiXS7dYrLAh/JavaScript.-Sprint-4)
+* [Ссылка на github](https://github.com/DirshaYandex/mesto)
 
-**Картинки**
-
-Доставать картинки предстоит из Фигмы. Это расхожая практика, поэтому полезно потренироваться.
-Не забудьте [оптимизировать картинки](https://tinypng.com/), чтобы ваш сайт загружался быстрее.
-
-Удачи!
