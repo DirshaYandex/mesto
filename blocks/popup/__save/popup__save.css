@@ -6,6 +6,7 @@
     color: white;
     margin-top: 3rem;
     margin-left: 2.25rem;
+    cursor: pointer;
 }
 
 .popup__save:hover {

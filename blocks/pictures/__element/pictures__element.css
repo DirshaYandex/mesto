@@ -5,4 +5,5 @@
     height: 22.5625rem;
     display: flex;
     flex-direction: column;
+    margin: auto;
 }
