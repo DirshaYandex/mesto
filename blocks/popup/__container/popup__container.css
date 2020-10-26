@@ -11,7 +11,7 @@
     z-index: 1;
 }
 
-@media all and (max-width: 879px) {
+@media all and (max-width: 900px) {
     .popup__container {
         width: 17.625rem;
     }

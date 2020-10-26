@@ -10,7 +10,7 @@
     overflow: hidden;
 }
 
-@media all and (max-width: 879px) {
+@media all and (max-width: 900px) {
     .profile__name {
         font-size: 1.6875rem;
         line-height: 3.5rem;

@@ -10,7 +10,7 @@
     overflow: hidden;
 }
 
-@media all and (max-width: 879px) {
+@media all and (max-width: 900px) {
     .profile__profession {
         margin-top: 0.875rem;
         font-size: 0.875rem;

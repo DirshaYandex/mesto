@@ -14,7 +14,7 @@
     opacity: 0.8;
 }
 
-@media all and (max-width: 879px) {
+@media all and (max-width: 900px) {
     .popup__save {
         width: 14.875rem;
         height: 2.875rem;

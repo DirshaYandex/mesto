@@ -4,7 +4,7 @@
     color: white;
 }
 
-@media all and (max-width: 879px) {
+@media all and (max-width: 900px) {
     .profile__info {
         padding-top: 0.640625rem;
     }

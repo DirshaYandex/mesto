@@ -9,7 +9,7 @@
     margin-top: 3.375rem;
 }
 
-@media all and (max-width: 879px) {
+@media all and (max-width: 900px) {
     .popup__field {
         width: 14.875rem;
     }

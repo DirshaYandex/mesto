@@ -5,7 +5,7 @@
     padding: 1.5625rem 1.0775rem 2rem 1.3125rem;
 }
 
-@media all and (max-width: 879px) {
+@media all and (max-width: 900px) {
     .pictures__info {
         padding: 1.5625rem 0.9375rem 1.9375rem 1.3125rem;
     }

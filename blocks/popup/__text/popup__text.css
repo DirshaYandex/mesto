@@ -12,7 +12,7 @@
     margin-right: 2.25rem;
 }
 
-@media all and (max-width: 879px) {
+@media all and (max-width: 900px) {
     .popup__text {
         margin-top: 1.5625rem;
         margin-right: 1.375rem;
