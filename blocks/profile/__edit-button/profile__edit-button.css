@@ -1,9 +1,9 @@
 .profile__edit-button {
-    background-color: black;
+    background: transparent url('../../../images/edit.svg') center no-repeat;
     width: 1.5rem;
     height: 1.5rem;
     padding: 0;
-    border: 1px solid white;
+    border: none;
     cursor: pointer;
 }
 
@@ -11,8 +11,9 @@
     opacity: 0.7;
 }
 
-@media all and (max-width: 767px) {
+@media all and (max-width: 879px) {
     .profile__edit-button {
+        background: transparent url('../../../images/edit-small.svg') center no-repeat;
         width: 1.125rem;
         height: 1.125rem;
         margin-left: 6.25px;

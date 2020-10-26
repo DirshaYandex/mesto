@@ -19,59 +19,53 @@
         <div class="profile__info">
           <div class="profile__fullname">
             <h1 class="profile__name">Жак-Ив Кусто</h1>
-            <svg class="profile__edit-button" width="24" height="24" viewbox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <rect x="0.5" y="0.5" width="23" height="23" stroke="white" stroke-width="0"/>
-              <path d="M17 8.32827L9.60377 15.7666L8.28302 14.4194L15.6604 7L17 8.32827ZM7 17L8.96226 16.4118L7.58491 15.0835L7 17Z" fill="white"/>
-            </svg> 
+            <button type="button" class="profile__edit-button"></button>
           </div>
-          <h2 class="profile__profession">Исследователь океана</h2>   
+          <p class="profile__profession">Исследователь океана</p>   
         </div>
-          <svg class="profile__add-button" width="150" height="50" viewbox="0 0 150 50" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <rect x="1" y="1" width="150" height="50" rx="1" stroke="white" stroke-width="0"/>
-            <path d="M86 23.7778H76.2222V14H73.7778V23.7778H64V26.2222H73.7778V36H76.2222V26.2222H86V23.7778Z" fill="white"/>
-          </svg>
+          <button type="button" class="profile__add-button"></button>
       </section>
       <section class="pictures">
         <div class="pictures__element">
           <img class="pictures__img" src="./images/church.jpg" alt="Карачаевск">
           <div class="pictures__info">
-            <p class="pictures__title">Карачаевск</p>
-            <img class="pictures__like" src="./images/heart.svg" alt="Сердечко">
+            <h2 class="pictures__title">Карачаевск</h2>
+            <button type="button" class="pictures__like"></button>
           </div>
         </div>
         <div class="pictures__element">
           <img class="pictures__img" src="./images/sunset.jpg" alt="Гора Эльбрус">
           <div class="pictures__info">
-            <p class="pictures__title">Гора Эльбрус</p>
-            <img class="pictures__like" src="./images/heart.svg" alt="Сердечко">
+            <h2 class="pictures__title">Гора Эльбрус</h2>
+            <button type="button" class="pictures__like"></button>
           </div>
         </div>
         <div class="pictures__element">
           <img class="pictures__img" src="./images/mountains.jpg" alt="Домбай">
           <div class="pictures__info">
-            <p class="pictures__title">Домбай</p>
-            <img class="pictures__like" src="./images/heart.svg" alt="Сердечко">
+            <h2 class="pictures__title">Домбай</h2>
+            <button type="button" class="pictures__like"></button>
           </div>
         </div>
         <div class="pictures__element">
           <img class="pictures__img" src="./images/sunset.jpg" alt="Гора Эльбрус">
           <div class="pictures__info">
-            <p class="pictures__title">Гора Эльбрус</p>
-            <img class="pictures__like" src="./images/heart.svg" alt="Сердечко">
+            <h2 class="pictures__title">Гора Эльбрус</h2>
+            <button type="button" class="pictures__like"></button>
           </div>
         </div>
         <div class="pictures__element">
           <img class="pictures__img" src="./images/mountains.jpg" alt="Домбай">
           <div class="pictures__info">
-            <p class="pictures__title">Домбай</p>
-            <img class="pictures__like" src="./images/heart.svg" alt="Сердечко">
+            <h2 class="pictures__title">Домбай</h2>
+            <button type="button" class="pictures__like"></button>
           </div>
         </div>
         <div class="pictures__element">
           <img class="pictures__img" src="./images/church.jpg" alt="Карачаево-Черкесия">
           <div class="pictures__info">
-            <p class="pictures__title">Карачаево-Черкесия</p>
-            <img class="pictures__like" src="./images/heart.svg" alt="Сердечко">
+            <h2 class="pictures__title">Карачаево-Черкесия</h2>
+            <button type="button" class="pictures__like"></button>
           </div>
         </div>        
       </section> 
@@ -83,9 +77,9 @@
       <div class="popup__container">
         <button type="button" class="popup__close"></button>
         <h2 class="popup__text">Редактировать профиль</h2>
-        <form class="popup__form">
-          <input class="popup__field popup__field_type_name" type="text" maxlength="25">
-          <input class="popup__field popup__field_type_title" type="text" maxlength="35">
+        <form class="popup__form" name="popup-form" method="post" action="">
+          <input class="popup__field popup__field_type_name" type="text" name= "first-name" maxlength="40">
+          <input class="popup__field popup__field_type_title" type="text" name= "profession" maxlength="40">
           <button class="popup__save" type="submit">Сохранить</button>
         </form>
       </div>

@@ -7,7 +7,7 @@
     box-sizing: border-box;
 }
 
-@media all and (max-width: 768px) {
+@media all and (max-width: 879px) {
     .profile {
         padding-top: 2.390625rem;
         flex-direction: column;

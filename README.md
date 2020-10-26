@@ -12,5 +12,5 @@
 
 **Github**
 
-* [Ссылка на github](https://github.com/DirshaYandex/mesto)
+* [Ссылка на страничку](https://dirshayandex.github.io/mesto/)
 

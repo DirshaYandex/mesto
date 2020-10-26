@@ -1,13 +1,16 @@
 .profile__profession {
-    font-family: Inter;
     font-style: normal;
     font-weight: normal;
     font-size: 1.125rem;
     line-height: 1.375rem;
+    max-width: 21rem;
     margin: 0;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
 }
 
-@media all and (max-width: 767px) {
+@media all and (max-width: 879px) {
     .profile__profession {
         margin-top: 0.875rem;
         font-size: 0.875rem;

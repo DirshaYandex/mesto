@@ -17,7 +17,6 @@ function showPopup() {
   popup.classList.add('popup_opened');
   nameField.value = profile.textContent;
   professionField.value = profession.textContent;
-  popup.removeEventListener('click', showPopup)
 }
 
 function closePopup() {
@@ -30,11 +29,6 @@ function popupClickHandler(event) {
   }
 }
 
-editButton.addEventListener('click', showPopup);
-popupCloseButton.addEventListener('click', closePopup);
-popup.addEventListener('mousedown', popupClickHandler)
-
-
 function submitForm(event) {
   event.preventDefault();
   profile.textContent = nameField.value;
@@ -42,5 +36,8 @@ function submitForm(event) {
   closePopup();
 }
 
+editButton.addEventListener('click', showPopup);
+popupCloseButton.addEventListener('click', closePopup);
+popup.addEventListener('mousedown', popupClickHandler)
 form.addEventListener('submit', submitForm);
 

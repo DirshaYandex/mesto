@@ -2,10 +2,10 @@
     width: 100%;
     padding-top: 2.8125rem;
     box-sizing: border-box;
-    border-bottom: 1px solid #545454;
+    border-bottom: 1px solid rgba(84, 84, 84, 0.7);
 }
 
-@media all and (max-width: 767px) {
+@media all and (max-width: 879px) {
     .header {
         padding-top: 1.75rem;
     }

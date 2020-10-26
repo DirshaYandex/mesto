@@ -3,17 +3,14 @@
     border: 0;
     border-bottom: 1px solid grey;
     margin-top: 1.85875rem;
-    margin-left: 2.25rem;
-
 }
 
 .popup__field:first-child {
     margin-top: 3.375rem;
 }
 
-@media all and (max-width: 767px) {
+@media all and (max-width: 879px) {
     .popup__field {
         width: 14.875rem;
-        margin-left: 1.375rem;
     }
 }

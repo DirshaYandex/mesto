@@ -1,10 +1,9 @@
 .profile__add-button {
     width: 9.375rem;
     height: 3.125rem;
-    background-color: black;
+    background: transparent url('../../../images/add.svg') center no-repeat;
     padding: 0;
-    border: 0;
-    border: 1px solid white;
+    border: none;
     margin-left: auto;
     cursor: pointer;
 }
@@ -13,8 +12,9 @@
     opacity: 0.7;
 }
 
-@media all and (max-width: 767px) {
+@media all and (max-width: 879px) {
     .profile__add-button {
+        background: transparent url('../../../images/add-big.svg') center no-repeat;
         width: 17.625rem;
         margin: 2.25rem auto 0 auto;
     }
