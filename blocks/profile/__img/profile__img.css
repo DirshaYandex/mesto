@@ -5,7 +5,7 @@
     margin-right: 1.875rem;
 }
 
-@media all and (max-width: 900px) {
+@media all and (max-width: 940px) {
     .profile__img {
         margin: 0;
     }

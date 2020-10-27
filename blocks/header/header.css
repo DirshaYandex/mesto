@@ -5,7 +5,7 @@
     border-bottom: 1px solid rgba(84, 84, 84, 0.7);
 }
 
-@media all and (max-width: 900px) {
+@media all and (max-width: 940px) {
     .header {
         padding-top: 1.75rem;
     }
