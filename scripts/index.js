@@ -4,6 +4,7 @@ const popupTitle = document.querySelector('.popup__text');
 
 const popupCloseButton = document.querySelector('.popup__close');
 const editButton = document.querySelector('.profile__edit-button');
+const addButton = document.querySelector('.profile__add-button');
 
 const profile = document.querySelector('.profile__name');
 const profession = document.querySelector('.profile__profession');
@@ -42,7 +43,7 @@ popup.addEventListener('mousedown', popupClickHandler)
 form.addEventListener('submit', submitForm);
 
 //еще больше js
-
+//Заполнение карточками
 const initialCards = [
   {
       name: 'Архыз',
@@ -81,3 +82,11 @@ function makePictureElement(item) {
 }
 
 initialCards.forEach(makePictureElement);
+
+//Лайк
+
+document.querySelectorAll('.pictures__like').forEach(item => {
+  item.addEventListener('click', event => {
+    event.currentTarget.classList.toggle('pictures__like_black');
+  })
+});

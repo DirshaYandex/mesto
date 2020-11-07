@@ -1,0 +1,7 @@
+.pictures__like_black {
+    background: transparent url('../../../../images/group-black.svg') center no-repeat;
+}
+
+.pictures__like_black:hover {
+    opacity: 1;
+}
