@@ -41,3 +41,43 @@ popupCloseButton.addEventListener('click', closePopup);
 popup.addEventListener('mousedown', popupClickHandler)
 form.addEventListener('submit', submitForm);
 
+//еще больше js
+
+const initialCards = [
+  {
+      name: 'Архыз',
+      link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg'
+  },
+  {
+      name: 'Челябинская область',
+      link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg'
+  },
+  {
+      name: 'Иваново',
+      link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/ivanovo.jpg'
+  },
+  {
+      name: 'Камчатка',
+      link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg'
+  },
+  {
+      name: 'Холмогорский район',
+      link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg'
+  },
+  {
+      name: 'Байкал',
+      link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
+  }
+]; 
+const pictureSection = document.querySelector('.pictures');
+const pictureTemplate = document.querySelector('#pictures').content;
+
+function makePictureElement(item) {
+  const pictureElement = pictureTemplate.cloneNode(true);
+  pictureElement.querySelector('.pictures__title').textContent = item['name'];
+  pictureElement.querySelector('.pictures__img').src = item['link'];
+  pictureElement.querySelector('.pictures__img').alt = item['name'];
+  pictureSection.append(pictureElement);
+}
+
+initialCards.forEach(makePictureElement);
