@@ -143,14 +143,11 @@ selectAllLikes();
 // Удаление карточки
 
 function deleteCard(event) {
-  console.log(event.target.parentElement)
-  event.target.parentElement.remove();
-  
+  event.target.parentElement.remove(); 
 }
 
 function makeDelete(item) {
   item.addEventListener('click', deleteCard);
-  console.log('fff')
 }
 
 function selectDeleteButtons() {
@@ -158,3 +155,45 @@ function selectDeleteButtons() {
 }
 
 selectDeleteButtons();
+
+//Попап картинки
+
+const picturePopup = document.querySelector('.picture-popup')
+const picturePopupCloseButton = document.querySelector('.picture-popup__close');
+const picture = document.querySelector('.picture-popup__image');
+const pictureText = document.querySelector('.picture-popup__text');
+
+function showPicturePopup() {
+  picturePopup.classList.add('picture-popup_opened');
+
+}
+
+function closePicturePopup() {
+  picturePopup.classList.remove('picture-popup_opened')
+}
+
+function picturePopupClickHandler(event) {
+  if (event.target.classList.contains('picture-popup')) {
+    closePicturePopup()
+  }
+}
+
+function increasePicture(event) {
+  showPicturePopup();
+  picture.src = event.target.src
+  picture.alt = event.target.alt
+  pictureText.textContent = event.target.alt
+}
+
+function pictureClickHandler(item) {
+  item.addEventListener('click', increasePicture);
+  console.log('Нажали на картиночку')
+}
+
+function selectAllPictures() {
+  document.querySelectorAll('.pictures__img').forEach(pictureClickHandler);
+}
+
+selectAllPictures();
+picturePopupCloseButton.addEventListener('click', closePicturePopup);
+picturePopup.addEventListener('mousedown', picturePopupClickHandler)
