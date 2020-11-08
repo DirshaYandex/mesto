@@ -1,0 +1,21 @@
+.add-popup__text {
+    left: 28.8125rem;
+    top: 14.3125rem;
+    font-style: normal;
+    font-weight: 900;
+    font-size: 1.5rem;
+    line-height: 1.8125rem;
+    color: #000000;
+    justify-self: start;
+    margin: 0;
+    margin-top: 2.125rem;
+}
+
+@media all and (max-width: 940px) {
+    .add-popup__text {
+        margin-top: 1.5625rem;
+        margin-right: 1.375rem;
+        font-size: 1.125rem;
+        line-height: 1.375rem;
+    }
+}

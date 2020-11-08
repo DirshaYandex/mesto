@@ -1,0 +1,17 @@
+.add-popup__field {
+    width: 22.375rem;
+    border: 0;
+    border-bottom: 1px solid grey;
+    opacity: 0.8;
+    margin-top: 1.85875rem;
+}
+
+.add-popup__field:first-child {
+    margin-top: 3.375rem;
+}
+
+@media all and (max-width: 940px) {
+    .add-popup__field {
+        width: 14.875rem;
+    }
+}
