@@ -149,8 +149,6 @@ function addSubmitForm(event) {
   const pictureElement = createPictureElement(imageNameField.value, imageLinkField.value);
   pictureSection.prepend(pictureElement);
   closeAddPopup();
-  selectAllLikes();
-  selectDeleteButtons();
 }
 
 // кнопки обработки попапа редактирования имени и профессии

@@ -18,7 +18,7 @@
   
   @media screen and (max-width: 940px) {
     .picture-popup__close {
-      right: 0;
+      right: -2.125rem;
     }
   }
   
