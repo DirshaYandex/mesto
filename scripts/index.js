@@ -1,18 +1,3 @@
-// Переменные для попапа редактирования имени и профессии
-const popup = document.querySelector('.popup');
-const popupContent = document.querySelector('.popup__container');
-const popupTitle = document.querySelector('.popup__text');
-
-const popupCloseButton = document.querySelector('.popup__close');
-const editButton = document.querySelector('.profile__edit-button');
-
-const profile = document.querySelector('.profile__name');
-const profession = document.querySelector('.profile__profession');
-
-const form = document.querySelector('.popup__form');
-const nameField = document.querySelector('.popup__field_type_name');
-const professionField = document.querySelector('.popup__field_type_title');
-
 //Список карточек
 const initialCards = [
   {
@@ -45,57 +30,30 @@ const initialCards = [
 const pictureSection = document.querySelector('.pictures');
 const pictureTemplate = document.querySelector('#pictures').content;
 
+// Переменные для попапа редактирования имени и профессии
+const editPopup = document.querySelector('.edit-popup');
+const editPopupForm = editPopup.querySelector('.popup__form');
+const editPopupNameField = editPopup.querySelector('.popup__field_type_name');
+const editPopupProfessionField = editPopup.querySelector('.popup__field_type_title');
+const editPopupOpenButton = document.querySelector('.profile__edit-button');
+const profileField = document.querySelector('.profile__name');
+const professionField = document.querySelector('.profile__profession');
+
 //Переменные для попапа на добавление новой карточки
 const addPopup = document.querySelector('.add-popup');
-const addPopupCloseButton = document.querySelector('.add-popup__close');
-const addButton = document.querySelector('.profile__add-button');
-const addForm = document.querySelector('.add-popup__form');
-const imageNameField = document.querySelector('.add-popup__field_type_image-name');
-const imageLinkField = document.querySelector('.add-popup__field_type_image-link');
+const addPopupForm = addPopup.querySelector('.popup__form');
+const addPopupImageNameField = addPopup.querySelector('.popup__field_type_image-name');
+const addPopupImageLinkField = addPopup.querySelector('.popup__field_type_image-link');
+const addPopupOpenButton = document.querySelector('.profile__add-button');
 
 //Переменные для попапа картинки
 const picturePopup = document.querySelector('.picture-popup')
-const picturePopupCloseButton = document.querySelector('.picture-popup__close');
-const picture = document.querySelector('.picture-popup__image');
-const pictureText = document.querySelector('.picture-popup__text');
-
-// попап редактирования имени и профессии
-function showPopup() {
-  popup.classList.add('popup_opened');
-  nameField.value = profile.textContent;
-  professionField.value = profession.textContent;
-}
-
-function closePopup() {
-  popup.classList.remove('popup_opened')
-}
-
-function popupClickHandler(event) {
-  if (event.target.classList.contains('popup')) {
-    closePopup()
-  }
-}
-
-function submitForm(event) {
-  event.preventDefault();
-  profile.textContent = nameField.value;
-  profession.textContent = professionField.value;
-  closePopup();
-}
+const picturePopupImage = picturePopup.querySelector('.picture-popup__image');
+const picturePopupText = picturePopup.querySelector('.picture-popup__text');
 
 //Попап картинки
 function showPicturePopup() {
-  picturePopup.classList.add('picture-popup_opened');
-}
-
-function closePicturePopup() {
-  picturePopup.classList.remove('picture-popup_opened')
-}
-
-function picturePopupClickHandler(event) {
-  if (event.target.classList.contains('picture-popup')) {
-    closePicturePopup()
-  }
+  picturePopup.classList.add('popup_opened');
 }
 
 //Создание карточки и обработка лайка, кнопки удаления, попапа картинки
@@ -112,9 +70,9 @@ function createPictureElement(name, link) {
   });
   pictureElement.querySelector('.pictures__img').addEventListener('click', event => {
     showPicturePopup();
-    picture.src = event.target.src
-    picture.alt = event.target.alt
-    pictureText.textContent = event.target.alt
+    picturePopupImage.src = event.target.src
+    picturePopupImage.alt = event.target.alt
+    picturePopupText.textContent = event.target.alt
   });
   return pictureElement;
 }
@@ -124,45 +82,57 @@ function initPictureElement(item) {
   const pictureElement = createPictureElement(item['name'],item['link']);
   pictureSection.append(pictureElement);
 }
-
 initialCards.forEach(initPictureElement);
 
-//Попап добавления карточки
-function showAddPopup() {
-  addPopup.classList.add('popup_opened');
-  imageNameField.value = '';
-  imageLinkField.value = '';
+// обработчики закрытия попапов
+function closePopup(popupElement) {
+  popupElement.classList.remove('popup_opened')
 }
 
-function closeAddPopup() {
-  addPopup.classList.remove('popup_opened')
-}
-
-function addPopupClickHandler(event) {
-  if (event.target.classList.contains('add-popup')) {
-    closeAddPopup()
+function popupClickHandler(event) {
+  if (event.target.classList.contains('popup')) {
+    closePopup(event.target)
+  }
+  if (event.target.classList.contains('popup__close')) {
+    closePopup(event.target.parentElement.parentElement)
   }
 }
 
-function addSubmitForm(event) {
+// обработчики попапа редактирования имени и профессии
+function showEditPopup() {
+  editPopup.classList.add('popup_opened');
+  editPopupNameField.value = profileField.textContent;
+  editPopupProfessionField.value = professionField.textContent;
+}
+function submitEditPopupForm(event) {
   event.preventDefault();
-  const pictureElement = createPictureElement(imageNameField.value, imageLinkField.value);
+  profileField.textContent = editPopupNameField.value;
+  professionField.textContent = editPopupProfessionField.value;
+  closePopup(editPopup);
+}
+
+// обработчики попапа добавления карточки
+function showAddPopup() {
+  addPopup.classList.add('popup_opened');
+  addPopupImageNameField.value = '';
+  addPopupImageLinkField.value = '';
+}
+function submitAddPopupForm(event) {
+  event.preventDefault();
+  const pictureElement = createPictureElement(addPopupImageNameField.value, addPopupImageLinkField.value);
   pictureSection.prepend(pictureElement);
-  closeAddPopup();
+  closePopup(addPopup);
 }
 
 // кнопки обработки попапа редактирования имени и профессии
-editButton.addEventListener('click', showPopup);
-popupCloseButton.addEventListener('click', closePopup);
-popup.addEventListener('mousedown', popupClickHandler)
-form.addEventListener('submit', submitForm);
+editPopupOpenButton.addEventListener('click', showEditPopup);
+editPopup.addEventListener('mousedown', popupClickHandler);
+editPopupForm.addEventListener('submit', submitEditPopupForm);
 
 // кнопки обработки попапа добавления новой карточки
-addButton.addEventListener('click', showAddPopup);
-addPopupCloseButton.addEventListener('click', closeAddPopup);
-addPopup.addEventListener('mousedown', addPopupClickHandler)
-addForm.addEventListener('submit', addSubmitForm);
+addPopupOpenButton.addEventListener('click', showAddPopup);
+addPopup.addEventListener('mousedown', popupClickHandler);
+addPopupForm.addEventListener('submit', submitAddPopupForm);
 
 // кнопки обработки попапа картинки
-picturePopupCloseButton.addEventListener('click', closePicturePopup);
-picturePopup.addEventListener('mousedown', picturePopupClickHandler);
+picturePopup.addEventListener('mousedown', popupClickHandler);

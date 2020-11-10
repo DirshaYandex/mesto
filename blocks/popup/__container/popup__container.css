@@ -1,6 +1,6 @@
 .popup__container {
     position: relative;
-    width: 26.875rem;
+    max-width: 75vw;
     margin: auto;
     background-color: #FFFFFF;
     border-radius: 0.625rem;
@@ -9,10 +9,14 @@
     align-items: center;
     justify-content: center;
     z-index: 1;
+    padding-left: 1.8125rem;
+    padding-right: 1.8125rem;
 }
 
 @media all and (max-width: 940px) {
     .popup__container {
         width: 17.625rem;
+        padding-left: 0.81rem;
+        padding-right: 0.81rem;
     }
 }
