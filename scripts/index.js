@@ -51,24 +51,30 @@ const picturePopup = document.querySelector('.picture-popup')
 const picturePopupImage = picturePopup.querySelector('.picture-popup__image');
 const picturePopupText = picturePopup.querySelector('.picture-popup__text');
 
+// обработчик открытия попапов
+function openPopup(popupElement) {
+  popupElement.classList.add('popup_opened')
+}
+
 //Попап картинки
 function showPicturePopup() {
-  picturePopup.classList.add('popup_opened');
+  openPopup(picturePopup);
 }
 
 //Создание карточки и обработка лайка, кнопки удаления, попапа картинки
 function createPictureElement(name, link) {
   const pictureElement = pictureTemplate.cloneNode(true);
+  const cardImage = pictureElement.querySelector('.pictures__img');
   pictureElement.querySelector('.pictures__title').textContent = name;
-  pictureElement.querySelector('.pictures__img').src = link;
-  pictureElement.querySelector('.pictures__img').alt = name;
+  cardImage.src = link;
+  cardImage.alt = name;
   pictureElement.querySelector('.pictures__like').addEventListener('click', event => {
     event.currentTarget.classList.toggle('pictures__like_black');
   });
   pictureElement.querySelector('.pictures__img-delete').addEventListener('click', event => {
     event.target.parentElement.remove();
   });
-  pictureElement.querySelector('.pictures__img').addEventListener('click', event => {
+  cardImage.addEventListener('click', () => {
     showPicturePopup();
     picturePopupImage.src = event.target.src
     picturePopupImage.alt = event.target.alt
@@ -100,7 +106,7 @@ function popupClickHandler(event) {
 
 // обработчики попапа редактирования имени и профессии
 function showEditPopup() {
-  editPopup.classList.add('popup_opened');
+  openPopup(editPopup)
   editPopupNameField.value = profileField.textContent;
   editPopupProfessionField.value = professionField.textContent;
 }
@@ -113,7 +119,7 @@ function submitEditPopupForm(event) {
 
 // обработчики попапа добавления карточки
 function showAddPopup() {
-  addPopup.classList.add('popup_opened');
+  openPopup(addPopup);
   addPopupImageNameField.value = '';
   addPopupImageLinkField.value = '';
 }
