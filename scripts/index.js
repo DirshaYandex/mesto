@@ -53,12 +53,7 @@ const picturePopupText = picturePopup.querySelector('.picture-popup__text');
 
 // обработчик открытия попапов
 function openPopup(popupElement) {
-  popupElement.classList.add('popup_opened')
-}
-
-//Попап картинки
-function showPicturePopup() {
-  openPopup(picturePopup);
+  popupElement.classList.add('popup_opened');
 }
 
 //Создание карточки и обработка лайка, кнопки удаления, попапа картинки
@@ -74,8 +69,10 @@ function createPictureElement(name, link) {
   pictureElement.querySelector('.pictures__img-delete').addEventListener('click', event => {
     event.target.parentElement.remove();
   });
+
+  //Попап картинки
   cardImage.addEventListener('click', () => {
-    showPicturePopup();
+    openPopup(picturePopup);
     picturePopupImage.src = event.target.src
     picturePopupImage.alt = event.target.alt
     picturePopupText.textContent = event.target.alt
@@ -92,7 +89,15 @@ initialCards.forEach(initPictureElement);
 
 // обработчики закрытия попапов
 function closePopup(popupElement) {
-  popupElement.classList.remove('popup_opened')
+  popupElement.classList.remove('popup_opened');
+  popupElement.querySelectorAll('.popup__field').forEach((input_element) => {
+    input_element.classList.remove('popup__field_state_invalid');  
+  })
+  popupElement.querySelectorAll('.error').forEach((error_element) => {
+    error_element.textContent = '';
+  })
+  editPopupNameField.value = profileField.textContent;
+  editPopupProfessionField.value = professionField.textContent;
 }
 
 function popupClickHandler(event) {
@@ -109,6 +114,8 @@ function showEditPopup() {
   openPopup(editPopup)
   editPopupNameField.value = profileField.textContent;
   editPopupProfessionField.value = professionField.textContent;
+  const submitButton = editPopupForm.querySelector(validationConfig.submitButtonSelector);
+  setButtonState(submitButton, editPopupForm.checkValidity(), validationConfig)
 }
 function submitEditPopupForm(event) {
   event.preventDefault();
@@ -142,3 +149,12 @@ addPopupForm.addEventListener('submit', submitAddPopupForm);
 
 // кнопки обработки попапа картинки
 picturePopup.addEventListener('mousedown', popupClickHandler);
+
+//закрытие на esc
+document.addEventListener('keypress', function (event) {
+  if(event.keyCode === 27) {
+    closePopup(document.querySelector('.popup_opened'));
+  }
+}); 
+
+

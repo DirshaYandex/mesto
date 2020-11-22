@@ -35,8 +35,10 @@
         <button type="button" class="popup__close"></button>
         <h2 class="popup__text">Редактировать профиль</h2>
         <form class="popup__form" name="popup-form" method="post" action="#">
-          <input class="popup__field popup__field_type_name" type="text" name= "first-name" maxlength="40">
-          <input class="popup__field popup__field_type_title" type="text" name= "profession" maxlength="40">
+          <input class="popup__field popup__field_type_name" id="first-name" type="text" name= "first-name" required minlength="2" maxlength="40" autocomplete="off">
+          <span class="error" id="first-name-error"></span>
+          <input class="popup__field popup__field_type_title" id="profession" type="text" name= "profession" required minlength="2" maxlength="200" autocomplete="off">
+          <span class="error" id="profession-error"></span>
           <button class="popup__save" type="submit">Сохранить</button>
         </form>
       </div>
@@ -46,8 +48,10 @@
         <button type="button" class="popup__close"></button>
         <h2 class="popup__text">Новое место</h2>
         <form class="popup__form" name="popup-form" method="post" action="#">
-          <input class="popup__field popup__field_type_image-name" type="text" name= "image-name" placeholder="Название">
-          <input class="popup__field popup__field_type_image-link" type="text" name= "image-link" placeholder="Ссылка на картинку">
+          <input class="popup__field popup__field_type_image-name" id="image-name" type="text" name= "image-name" placeholder="Название" required minlength="2" maxlength="30" autocomplete="off">
+          <span class="error" id="image-name-error"></span>
+          <input class="popup__field popup__field_type_image-link" id="image-link" type="url" name= "image-link" placeholder="Ссылка на картинку" required autocomplete="off" pattern="^(?:http(s)?:\/\/)?[\w.-]+(?:\.[\w\.-]+)+[\w\-\._~:/?#[\]@!\$&'\(\)\*\+,;=.]+$">
+          <span class="error" id="image-link-error"></span>
           <button class="popup__save" type="submit">Сохранить</button>
         </form>
       </div>
@@ -69,7 +73,8 @@
         <button type="button" class="pictures__like"></button>
       </div>
     </div>
-  </template> 
+  </template>
   <script src="scripts/index.js"></script>
+  <script src="scripts/validate.js"></script>
 </body>
 </html>

@@ -1,8 +1,9 @@
 .popup__field {
     width: 22.375rem;
     border: 0;
-    border-bottom: 1px solid grey;
-    margin-top: 1.85875rem;
+    border-bottom: 1px solid #C4C4C4;
+    /* margin-top: 1.85875rem; */
+    margin-top: 0.3rem;
 }
 
 .popup__field:first-child {
