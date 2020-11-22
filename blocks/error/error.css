@@ -10,3 +10,9 @@
     width: 22.375rem;
     min-height: 1.9rem;
 }
+
+@media all and (max-width: 940px) {
+    .error {
+        width: 14.875rem;
+    }
+}
