@@ -51,9 +51,13 @@ const picturePopup = document.querySelector('.picture-popup')
 const picturePopupImage = picturePopup.querySelector('.picture-popup__image');
 const picturePopupText = picturePopup.querySelector('.picture-popup__text');
 
+const escKeyCode = 27;
+
 // обработчик открытия попапов
 function openPopup(popupElement) {
   popupElement.classList.add('popup_opened');
+  document.addEventListener('keydown', closeOnEscHandler); 
+  popupElement.addEventListener('mousedown', popupOverlayClickHandler);
 }
 
 //Создание карточки и обработка лайка, кнопки удаления, попапа картинки
@@ -90,6 +94,14 @@ initialCards.forEach(initPictureElement);
 // обработчики закрытия попапов
 function closePopup(popupElement) {
   popupElement.classList.remove('popup_opened');
+  document.removeEventListener('keydown', closeOnEscHandler); 
+  popupElement.removeEventListener('mousedown', popupOverlayClickHandler);
+  if (Boolean(popupElement.querySelector('.popup__field'))) {
+    clearValidErrors(popupElement);
+  }
+}
+
+function clearValidErrors(popupElement) {
   popupElement.querySelectorAll('.popup__field').forEach((input_element) => {
     input_element.classList.remove('popup__field_state_invalid');  
   })
@@ -100,7 +112,14 @@ function closePopup(popupElement) {
   editPopupProfessionField.value = professionField.textContent;
 }
 
-function popupClickHandler(event) {
+function closeOnEscHandler(event) {
+  if(event.keyCode === escKeyCode) {
+    closePopup(document.querySelector('.popup_opened'));
+    event.preventDefault();
+  }
+}
+
+function popupOverlayClickHandler(event) {
   if (event.target.classList.contains('popup')) {
     closePopup(event.target)
   }
@@ -129,6 +148,8 @@ function showAddPopup() {
   openPopup(addPopup);
   addPopupImageNameField.value = '';
   addPopupImageLinkField.value = '';
+  const submitButton = addPopupForm.querySelector(validationConfig.submitButtonSelector);
+  setButtonState(submitButton, addPopupForm.checkValidity(), validationConfig)
 }
 function submitAddPopupForm(event) {
   event.preventDefault();
@@ -139,22 +160,11 @@ function submitAddPopupForm(event) {
 
 // кнопки обработки попапа редактирования имени и профессии
 editPopupOpenButton.addEventListener('click', showEditPopup);
-editPopup.addEventListener('mousedown', popupClickHandler);
 editPopupForm.addEventListener('submit', submitEditPopupForm);
 
 // кнопки обработки попапа добавления новой карточки
 addPopupOpenButton.addEventListener('click', showAddPopup);
-addPopup.addEventListener('mousedown', popupClickHandler);
 addPopupForm.addEventListener('submit', submitAddPopupForm);
 
-// кнопки обработки попапа картинки
-picturePopup.addEventListener('mousedown', popupClickHandler);
-
-//закрытие на esc
-document.addEventListener('keypress', function (event) {
-  if(event.keyCode === 27) {
-    closePopup(document.querySelector('.popup_opened'));
-  }
-}); 
 
 
