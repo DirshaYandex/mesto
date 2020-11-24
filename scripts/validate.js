@@ -28,6 +28,17 @@ const validationConfig = {
     error.textContent = ''
     input.classList.remove(config.inputInvalidClass);
   }
+
+  function clearValidErrors(popupElement) {
+    popupElement.querySelectorAll('.popup__field').forEach((input_element) => {
+      input_element.classList.remove('popup__field_state_invalid');  
+    })
+    popupElement.querySelectorAll('.error').forEach((error_element) => {
+      error_element.textContent = '';
+    })
+    editPopupNameField.value = profileField.textContent;
+    editPopupProfessionField.value = professionField.textContent;
+  }
   
   function checkValidity(form, input, config){
     console.log(form.validity)

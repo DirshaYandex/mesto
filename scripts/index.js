@@ -91,27 +91,7 @@ function initPictureElement(item) {
 }
 initialCards.forEach(initPictureElement);
 
-// обработчики закрытия попапов
-function closePopup(popupElement) {
-  popupElement.classList.remove('popup_opened');
-  document.removeEventListener('keydown', closeOnEscHandler); 
-  popupElement.removeEventListener('mousedown', popupOverlayClickHandler);
-  if (Boolean(popupElement.querySelector('.popup__field'))) {
-    clearValidErrors(popupElement);
-  }
-}
-
-function clearValidErrors(popupElement) {
-  popupElement.querySelectorAll('.popup__field').forEach((input_element) => {
-    input_element.classList.remove('popup__field_state_invalid');  
-  })
-  popupElement.querySelectorAll('.error').forEach((error_element) => {
-    error_element.textContent = '';
-  })
-  editPopupNameField.value = profileField.textContent;
-  editPopupProfessionField.value = professionField.textContent;
-}
-
+// обработчики закрытия попапа на оверлей и на кнопку esc
 function closeOnEscHandler(event) {
   if(event.keyCode === escKeyCode) {
     closePopup(document.querySelector('.popup_opened'));
@@ -125,6 +105,16 @@ function popupOverlayClickHandler(event) {
   }
   if (event.target.classList.contains('popup__close')) {
     closePopup(event.target.parentElement.parentElement)
+  }
+}
+
+// обработчики закрытия попапов
+function closePopup(popupElement) {
+  popupElement.classList.remove('popup_opened');
+  document.removeEventListener('keydown', closeOnEscHandler); 
+  popupElement.removeEventListener('mousedown', popupOverlayClickHandler);
+  if (Boolean(popupElement.querySelector('.popup__field'))) {
+    clearValidErrors(popupElement);
   }
 }
 
