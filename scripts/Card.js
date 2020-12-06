@@ -10,7 +10,7 @@ export default class Card {
         const cardElement = document
         .querySelector(this._cardSelector)
         .content
-        .querySelector('.pictures__element')
+        .querySelector('.card')
         .cloneNode(true);
     
       return cardElement;
@@ -19,9 +19,9 @@ export default class Card {
     generateCard() {
         this._element = this._getTemplate();
 
-        this._element.querySelector('.pictures__img').src = this._link;
-        this._element.querySelector('.pictures__img').alt = this._name;
-        this._element.querySelector('.pictures__title').textContent = this._name;
+        this._element.querySelector('.card__img').src = this._link;
+        this._element.querySelector('.card__img').alt = this._name;
+        this._element.querySelector('.card__title').textContent = this._name;
 
         this._setEventListeners();
         this._handleOpenImagePopup();
@@ -30,7 +30,7 @@ export default class Card {
     } 
 
     _handleLikeClick(event) {
-        event.currentTarget.classList.toggle('pictures__like_black');
+        event.currentTarget.classList.toggle('card__like_black');
     }
 
     _handleRemoveElement(event) {
@@ -42,7 +42,7 @@ export default class Card {
         const picturePopupImage = picturePopup.querySelector('.picture-popup__image');
         const picturePopupText = picturePopup.querySelector('.picture-popup__text');
 
-        this._element.querySelector('.pictures__img').addEventListener('click', () => {
+        this._element.querySelector('.card__img').addEventListener('click', () => {
             this._openPopup(picturePopup);
             picturePopupImage.src = event.target.src 
             picturePopupImage.alt = event.target.alt
@@ -52,11 +52,11 @@ export default class Card {
     }
 
     _setEventListeners() {
-        this._element.querySelector('.pictures__like').addEventListener('click', event => {
+        this._element.querySelector('.card__like').addEventListener('click', event => {
             this._handleLikeClick(event);
         });
 
-        this._element.querySelector('.pictures__img-delete').addEventListener('click', event => {
+        this._element.querySelector('.card__img-delete').addEventListener('click', event => {
             this._handleRemoveElement(event);
         });
     }
