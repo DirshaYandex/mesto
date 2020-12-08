@@ -40,9 +40,9 @@ export default class Card {
     }
 
     _handleOpenImagePopup () {
-        let picturePopup = this._popupImageElement;
-        let picturePopupImage = picturePopup.querySelector('.picture-popup__image');
-        let picturePopupText = picturePopup.querySelector('.picture-popup__text');
+        const picturePopup = this._popupImageElement;
+        const picturePopupImage = picturePopup.querySelector('.picture-popup__image');
+        const picturePopupText = picturePopup.querySelector('.picture-popup__text');
 
         this._element.querySelector('.card__img').addEventListener('click', () => {
             this._openPopup(picturePopup);

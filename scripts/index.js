@@ -31,7 +31,7 @@ const initialCards = [
 ]; 
 
 const pictureSection = document.querySelector('.pictures');
-let popupImageElement = document.querySelector('.picture-popup')
+const popupImageElement = document.querySelector('.picture-popup')
 
 const validationConfig = {
   inputSelector: '.popup__field',
@@ -112,8 +112,6 @@ function closePopup(popupElement) {
   popupElement.classList.remove('popup_opened');
   document.removeEventListener('keydown', closeOnEscHandler); 
   popupElement.removeEventListener('mousedown', popupOverlayClickHandler);
-  // без вызова метода ниже не будут очищаться ошибки валидации
-  clearPopupErrors(popupElement);
 }
 
 // обработчики попапа редактирования имени и профессии
@@ -121,8 +119,8 @@ function showEditPopup() {
   editPopupNameField.value = profileField.textContent;
   editPopupProfessionField.value = professionField.textContent;
   openPopup(editPopup)
-  // без строчки ниже кнопка будет неактивная при повторном открытии попапа редактирования
   editPopupFormValidator.setButtonState();
+  clearPopupErrors(editPopup);
 }
 function submitEditPopupForm(event) {
   event.preventDefault();
@@ -138,6 +136,7 @@ function showAddPopup() {
   addPopupImageNameField.value = '';
   addPopupImageLinkField.value = '';
   openPopup(addPopup);
+  clearPopupErrors(addPopup);
 }
 
 function submitAddPopupForm(event) {
