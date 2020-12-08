@@ -31,6 +31,7 @@ const initialCards = [
 ]; 
 
 const pictureSection = document.querySelector('.pictures');
+let popupImageElement = document.querySelector('.picture-popup')
 
 const validationConfig = {
   inputSelector: '.popup__field',
@@ -62,7 +63,7 @@ addPopupFormValidator.enableValidation()
 const escKeyCode = 27;
 
 initialCards.forEach((item) => {
-	const card = new Card(item, '#pictures', openPopup);
+	const card = new Card(item, '#pictures', openPopup, popupImageElement);
 	const cardElement = card.generateCard();
 	pictureSection.append(cardElement);
 });
@@ -87,7 +88,7 @@ function popupOverlayClickHandler(event) {
     closePopup(event.target)
   }
   if (event.target.classList.contains('popup__close')) {
-    closePopup(event.target.parentElement.parentElement)
+    closePopup(event.target.closest('.popup_opened'))
   }
 }
 
@@ -100,14 +101,19 @@ function clearValidErrors(popupElement) {
   })
 }
 
+function clearPopupErrors(popupElement) {
+  if (Boolean(popupElement.querySelector('.popup__field'))) {
+    clearValidErrors(popupElement);
+  }
+}
+
 // обработчики закрытия попапов
 function closePopup(popupElement) {
   popupElement.classList.remove('popup_opened');
   document.removeEventListener('keydown', closeOnEscHandler); 
   popupElement.removeEventListener('mousedown', popupOverlayClickHandler);
-  if (Boolean(popupElement.querySelector('.popup__field'))) {
-    clearValidErrors(popupElement);
-  }
+  // без вызова метода ниже не будут очищаться ошибки валидации
+  clearPopupErrors(popupElement);
 }
 
 // обработчики попапа редактирования имени и профессии
@@ -116,7 +122,7 @@ function showEditPopup() {
   editPopupProfessionField.value = professionField.textContent;
   openPopup(editPopup)
   // без строчки ниже кнопка будет неактивная при повторном открытии попапа редактирования
-  editPopupFormValidator._setButtonState();
+  editPopupFormValidator.setButtonState();
 }
 function submitEditPopupForm(event) {
   event.preventDefault();
@@ -140,9 +146,8 @@ function submitAddPopupForm(event) {
     name: addPopupImageNameField.value,
     link: addPopupImageLinkField.value
   }
-  const card = new Card(item, '#pictures', openPopup);
+  const card = new Card(item, '#pictures', openPopup, popupImageElement);
 	const cardElement = card.generateCard();
-
   pictureSection.prepend(cardElement);
   closePopup(addPopup);
 }

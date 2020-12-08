@@ -1,9 +1,10 @@
 export default class Card {
-    constructor(data, cardSelector, openPopup) {
+    constructor(data, cardSelector, openPopup, popupImageElement) {
 		this._name = data.name;
 		this._link = data.link;
         this._cardSelector = cardSelector;
         this._openPopup = openPopup
+        this._popupImageElement = popupImageElement;
     }
     
     _getTemplate() {
@@ -18,9 +19,10 @@ export default class Card {
 
     generateCard() {
         this._element = this._getTemplate();
+        let cardImg = this._element.querySelector('.card__img')
 
-        this._element.querySelector('.card__img').src = this._link;
-        this._element.querySelector('.card__img').alt = this._name;
+        cardImg.src = this._link;
+        cardImg.alt = this._name;
         this._element.querySelector('.card__title').textContent = this._name;
 
         this._setEventListeners();
@@ -38,15 +40,15 @@ export default class Card {
     }
 
     _handleOpenImagePopup () {
-        const picturePopup = document.querySelector('.picture-popup')
-        const picturePopupImage = picturePopup.querySelector('.picture-popup__image');
-        const picturePopupText = picturePopup.querySelector('.picture-popup__text');
+        let picturePopup = this._popupImageElement;
+        let picturePopupImage = picturePopup.querySelector('.picture-popup__image');
+        let picturePopupText = picturePopup.querySelector('.picture-popup__text');
 
         this._element.querySelector('.card__img').addEventListener('click', () => {
             this._openPopup(picturePopup);
-            picturePopupImage.src = event.target.src 
-            picturePopupImage.alt = event.target.alt
-            picturePopupText.textContent = event.target.alt
+            picturePopupImage.src =  this._link; 
+            picturePopupImage.alt = this._name;
+            picturePopupText.textContent = this._name;
         });
         return this._element;
     }

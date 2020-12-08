@@ -8,7 +8,11 @@ export default class FormValidator {
         this._submitButton = form.querySelector(this._submitButtonSelector);
     }
 
-    _showError(input) {
+    _showError(input) {           
+        input.classList.add(this._inputInvalidClass);
+    }
+
+    _generateError(input) {
         const error = this._form.querySelector(`#${input.id}-error`);
         if (input.validity.tooShort){
             error.textContent = `Минимальное количество символов: 2. Длина текста сейчас ${input.value.length}` + ` символ.`;  
@@ -19,7 +23,6 @@ export default class FormValidator {
         if (input.validity.patternMismatch){  
             error.textContent = "Введите адрес сайта.";  
         }            
-        input.classList.add(this._inputInvalidClass);
     }
       
     _hideError(input){
@@ -30,6 +33,7 @@ export default class FormValidator {
       
     _checkValidity(input){
         if (!input.validity.valid) {
+            this._generateError(input);
             this._showError(input);
         }
         else {
@@ -37,7 +41,7 @@ export default class FormValidator {
         }
     }
       
-    _setButtonState(){
+    setButtonState(){
         if(this._form.checkValidity()){
             this._submitButton.classList.remove(this._buttonInvalidClass);
             this._submitButton.disabled = false;
@@ -54,13 +58,13 @@ export default class FormValidator {
         inputLists.forEach((input) => {
             input.addEventListener('input', ()=> {
             this._checkValidity(input);
-            this._setButtonState()
+            this.setButtonState()
             });
         });
     }
 
     enableValidation(){
         this._setEventListeners();    
-        this._setButtonState()
+        this.setButtonState()
     }
 }
