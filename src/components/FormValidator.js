@@ -57,8 +57,8 @@ export default class FormValidator {
     
         inputLists.forEach((input) => {
             input.addEventListener('input', ()=> {
-            this._checkValidity(input);
-            this.setButtonState()
+              this._checkValidity(input);
+              this.setButtonState()
             });
         });
     }
@@ -66,5 +66,14 @@ export default class FormValidator {
     enableValidation(){
         this._setEventListeners();    
         this.setButtonState()
+    }
+
+    clearValidErrors() {
+        this._form.querySelectorAll('.popup__field').forEach((input_element) => {
+            input_element.classList.remove('popup__field_state_invalid');  
+        })
+        this._form.querySelectorAll('.error').forEach((error_element) => {
+            error_element.textContent = '';
+        })
     }
 }
