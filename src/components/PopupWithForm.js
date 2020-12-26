@@ -20,12 +20,11 @@ export default class PopupWithForm extends Popup {
     }
 
     _getInputValues() {
-        const array = this._popupElement.querySelectorAll('.popup__field')
-        const new_array = []
-        array.forEach((input_element) => {
-            new_array.push(input_element.value);  
-        })
-        return new_array;
+        const inputValues = []
+        this._popupElement.querySelectorAll('.popup__field').forEach((inputElement) => {
+            inputValues.push(inputElement.value);
+        });
+        return inputValues;
     }
 
     _handleSubmit(event) {
