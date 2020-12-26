@@ -31,8 +31,8 @@ const addPopupOpenButton = document.querySelector('.profile__add-button');
 
 const submitAddCallback = (inputValues) => {
   let item = {
-    name: inputValues[0].value,
-    link: inputValues[1].value
+    name: inputValues[0],
+    link: inputValues[1]
   }
   pictureSection.addItem(item);
 }
@@ -42,8 +42,8 @@ addPopup.setEventListeners();
 const addPopupFormValidator = new FormValidator(constants.validationConfig, addPopup.popupForm);
 addPopupFormValidator.enableValidation();
 
+const popupWithImage = new PopupWithImage(constants.picturePopupSelector);
 const handleCardClick = (name, link) => {
-  const popupWithImage = new PopupWithImage(constants.picturePopupSelector);
   popupWithImage.setEventListeners();
   popupWithImage.open(link, name);
 }
@@ -74,5 +74,6 @@ addPopupOpenButton.addEventListener('click', () => {
   addPopupImageNameField.value = '';
   addPopupImageLinkField.value = '';
   addPopup.open()
+  addPopupFormValidator.setButtonState();
   addPopupFormValidator.clearValidErrors();
 });

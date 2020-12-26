@@ -31,7 +31,8 @@ const validationConfig = {
     inputSelector: '.popup__field',
     submitButtonSelector: '.popup__save',
     inputInvalidClass: 'popup__field_state_invalid',
-    buttonInvalidClass: 'popup__save_state_invalid'
+    buttonInvalidClass: 'popup__save_state_invalid',
+    errorSelector: '.error'
 };
 
 const userInfoConfig = {

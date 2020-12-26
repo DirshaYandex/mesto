@@ -1,3 +1,5 @@
+import * as constants from'./../utils/constants.js'
+
 export default class FormValidator {
     constructor(config, form) {
 		this._inputSelector = config.inputSelector;
@@ -69,10 +71,10 @@ export default class FormValidator {
     }
 
     clearValidErrors() {
-        this._form.querySelectorAll('.popup__field').forEach((input_element) => {
-            input_element.classList.remove('popup__field_state_invalid');  
+        this._form.querySelectorAll(constants.validationConfig.inputSelector).forEach((input_element) => {
+            input_element.classList.remove(constants.validationConfig.inputInvalidClass);  
         })
-        this._form.querySelectorAll('.error').forEach((error_element) => {
+        this._form.querySelectorAll(constants.validationConfig.errorSelector).forEach((error_element) => {
             error_element.textContent = '';
         })
     }
