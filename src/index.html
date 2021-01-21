@@ -15,7 +15,7 @@
     <main class="content">
       <section class="profile">
         <div class='profile__container'>
-          <img class="profile__img" src="" alt="Профиль">
+          <img class="profile__img" src="#" alt="Профиль">
           <div class="profile__middle">
             <img class="profile__pen" src="<%=require('./images/pen.svg')%>" alt='Карандаш'>
           </div>
@@ -80,8 +80,8 @@
       <button type="button" class="popup__close"></button>
       <h2 class="popup__text update-popup__text">Обновить аватар</h2>
       <form class="popup__form" name="popup-form" method="post" action="#">
-        <input class="popup__field popup__field_type_image-link" id="image-link" type="url" name= "image-link" placeholder="Ссылка на картинку" required autocomplete="off" pattern="^(?:http(s)?:\/\/)?[\w.-]+(?:\.[\w\.-]+)+[\w\-\._~:/?#[\]@!\$&'\(\)\*\+,;=.]+$">
-        <span class="error" id="image-link-error"></span>
+        <input class="popup__field popup__field_type_image-link" id="update-image-link" type="url" name= "image-link" placeholder="Ссылка на картинку" required autocomplete="off" pattern="^(?:http(s)?:\/\/)?[\w.-]+(?:\.[\w\.-]+)+[\w\-\._~:/?#[\]@!\$&'\(\)\*\+,;=.]+$">
+        <span class="error" id="update-image-link-error"></span>
         <button class="popup__save" type="submit">Сохранить</button>
       </form>
     </div>
