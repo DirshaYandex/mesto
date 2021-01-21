@@ -1,0 +1,11 @@
+.card__number-like{
+    width: 0.625rem;
+    height: 0.8125rem;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 0.8125rem;
+    line-height: 1rem;
+    text-align: center;
+    color: #000000;
+    margin: 0.1875rem auto 0 auto;
+}

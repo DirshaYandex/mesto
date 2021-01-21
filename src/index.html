@@ -14,13 +14,13 @@
     </header>
     <main class="content">
       <section class="profile">
-        <img class="profile__img" src="<%=require('./images/profile.jpg')%>" alt="Профиль">
+        <img class="profile__img" src="" alt="Профиль">
         <div class="profile__info">
           <div class="profile__fullname">
-            <h1 class="profile__name">Жак-Ив Кусто</h1>
+            <h1 class="profile__name"></h1>
             <button type="button" class="profile__edit-button"></button>
           </div>
-          <p class="profile__profession">Исследователь океана</p>   
+          <p class="profile__profession"></p>   
         </div>
           <button type="button" class="profile__add-button"></button>
       </section>
@@ -63,13 +63,33 @@
       </div>
     </div>
   </div>
+  <div class="popup alert-popup">  
+    <div class="popup__container">
+      <button type="button" class="popup__close"></button>
+      <h2 class="popup__text">Вы уверены?</h2>
+      <button class="popup__save alert-popup__save" type="button">Да</button>
+    </div>
+  </div>
+  <div class="popup update-popup">  
+    <div class="popup__container">
+      <button type="button" class="popup__close"></button>
+      <h2 class="popup__text update-popup__text">Обновить аватар</h2>
+      <form class="popup__form" name="popup-form" method="post" action="#">
+        <input class="popup__field popup__field_type_image-link" id="image-link" type="url" name= "image-link" placeholder="Ссылка на картинку" required autocomplete="off" pattern="^(?:http(s)?:\/\/)?[\w.-]+(?:\.[\w\.-]+)+[\w\-\._~:/?#[\]@!\$&'\(\)\*\+,;=.]+$">
+        <span class="error" id="image-link-error"></span>
+        <button class="popup__save" type="submit">Сохранить</button>
+      </form>
+    </div>
+  </div>
   <template id="pictures">
     <div class="card">
       <img class="card__img"  alt="#" src="#">
-      <button type="button" class="card__img-delete"></button>
       <div class="card__info">
         <h2 class="card__title"></h2>
-        <button type="button" class="card__like"></button>
+        <div class="card__likes">
+          <button type="button" class="card__like"></button>
+          <p class="card__number-like"></p>
+        </div>
       </div>
     </div>
   </template>

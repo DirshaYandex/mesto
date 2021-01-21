@@ -37,13 +37,16 @@ const validationConfig = {
 
 const userInfoConfig = {
     profileNameSelector: '.profile__name',
-    profileProfessionSelector: '.profile__profession'
+    profileProfessionSelector: '.profile__profession',
+    profileImageSelector: '.profile__img'
 }
 
 const pictureSectionSelector = '.pictures';
 const picturePopupSelector = '.picture-popup';
 const addPopupSelector = '.add-popup';
 const editPopupSelector = '.edit-popup';
+const confirmDeletePopupSelector = '.alert-popup';
+const updatePopupSelector = '.update-popup';
 const pictureTemplateSelector = '#pictures';
 
-export { userInfoConfig,validationConfig,initialCards,pictureSectionSelector,picturePopupSelector,addPopupSelector,editPopupSelector,pictureTemplateSelector  }
+export { userInfoConfig,validationConfig,initialCards,pictureSectionSelector,picturePopupSelector,addPopupSelector,editPopupSelector,confirmDeletePopupSelector,pictureTemplateSelector,updatePopupSelector  }
