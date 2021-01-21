@@ -1,0 +1,14 @@
+.profile__container {
+    width: 7.5rem;
+    height: 7.5rem;
+    margin-right: 1.875rem;
+    position: relative;
+}
+
+.profile__container:hover .profile__img {
+    opacity: 0.8;
+}
+
+.profile__container:hover .profile__middle {
+    opacity: 1;
+}

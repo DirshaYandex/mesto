@@ -122,7 +122,7 @@ const submitUpdateCallback = (inputValues) => {
     })
   updatePopup.popupForm.querySelector('.popup__save').textContent = "Сохранить"
 }
-const updatePopupOpenButton = document.querySelector('.profile__img');
+const updatePopupOpenButton = document.querySelector('.profile__container');
 const updatePopup = new PopupWithForm(constants.updatePopupSelector, submitUpdateCallback);
 updatePopup.setEventListeners();
 const updatePopupFormValidator = new FormValidator(constants.validationConfig, updatePopup.popupForm);
