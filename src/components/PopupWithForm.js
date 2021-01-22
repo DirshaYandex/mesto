@@ -5,15 +5,17 @@ export default class PopupWithForm extends Popup {
         super(popupSelector);
         this.popupForm = this._popupElement.querySelector('.popup__form');
         this._submitCallback = submitCallback;
+        this._handleSubmit = this._handleSubmit.bind(this)
+        this.saveButton = this.popupForm.querySelector('.popup__save')
     }
 
     close() {
-        this.popupForm.removeEventListener('submit', this._handleSubmit.bind(this));
+        this.popupForm.reset()
         super.close();
     }
 
     setEventListeners() {
-        this.popupForm.addEventListener('submit', this._handleSubmit.bind(this));
+        this.popupForm.addEventListener('submit', this._handleSubmit);
         super.setEventListeners();
     }
 

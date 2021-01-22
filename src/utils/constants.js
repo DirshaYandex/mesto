@@ -1,32 +1,3 @@
-//Список карточек
-const initialCards = [
-    {
-        name: 'Архыз',
-        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg'
-    },
-    {
-        name: 'Челябинская область',
-        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg'
-    },
-    {
-        name: 'Иваново',
-        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/ivanovo.jpg'
-    },
-    {
-        name: 'Камчатка',
-        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg'
-    },
-    {
-        name: 'Холмогорский район',
-        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg'
-    },
-    {
-        name: 'Байкал',
-        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
-    }
-  ]; 
-  
-  
 const validationConfig = {
     inputSelector: '.popup__field',
     submitButtonSelector: '.popup__save',
@@ -48,5 +19,19 @@ const editPopupSelector = '.edit-popup';
 const confirmDeletePopupSelector = '.alert-popup';
 const updatePopupSelector = '.update-popup';
 const pictureTemplateSelector = '#pictures';
+const editFieldNameSelector = '.popup__field_type_name';
+const editFieldProfessionSelector = '.popup__field_type_title';
+const editPopupOpenButtonSelector = '.profile__edit-button';
+const baseUrl = 'https://mesto.nomoreparties.co/v1/cohort-19';
+const token = '1ab95744-b66b-4860-b7ff-75c4243c7033';
+const addPopupOpenButtonSelector = '.profile__add-button';
+const updatePopupOpenButtonSelector = '.profile__container';
+const saveButtonText = 'Сохранить';
+const saveButtonTextLoading = 'Сохранение...';
 
-export { userInfoConfig,validationConfig,initialCards,pictureSectionSelector,picturePopupSelector,addPopupSelector,editPopupSelector,confirmDeletePopupSelector,pictureTemplateSelector,updatePopupSelector  }
+export { 
+    userInfoConfig,validationConfig,pictureSectionSelector,picturePopupSelector,
+    addPopupSelector,editPopupSelector,confirmDeletePopupSelector,pictureTemplateSelector,
+    updatePopupSelector,editFieldNameSelector,editFieldProfessionSelector,editPopupOpenButtonSelector,
+    baseUrl,token,addPopupOpenButtonSelector,updatePopupOpenButtonSelector,saveButtonText,saveButtonTextLoading
+}

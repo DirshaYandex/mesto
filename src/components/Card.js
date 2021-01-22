@@ -9,6 +9,16 @@ export default class Card {
         this._handleCardClick = handleCardClick; 
         this._handleDeleteCardClick = handleDeleteCardClick;
         this._handleLikeCardClick = handleLikeCardClick;
+        this._initElements();
+    }
+
+    _initElements(){
+        this._element = this._getTemplate(); 
+        this._cardTitle = this._element.querySelector('.card__title');
+        this._cardLike = this._element.querySelector('.card__like');
+        this._cardLikes = this._element.querySelector('.card__number-like');
+        this._deleteBtn = this._element.querySelector('.card__img-delete');
+        this._cardImg = this._element.querySelector('.card__img');
     }
     
     _getTemplate() {
@@ -20,29 +30,16 @@ export default class Card {
       return cardElement;
     }
 
-    generateCard(ownerId) {
-        this._element = this._getTemplate(); 
-        this._element.querySelector('.card__title').textContent = this._name;
-        this._cardLike = this._element.querySelector('.card__like')
-
-        this._cardImg = this._element.querySelector('.card__img');
+    generateCard(myId) {
+        this._cardTitle.textContent = this._name;
         this._cardImg.src = this._link;
         this._cardImg.alt = this._name;
 
-        this._cardLikes = this._element.querySelector('.card__number-like')
-        this._cardLikes.textContent = this._likes.length;
-
-        if (this._owner._id === ownerId){
-            this._deleteBtn = document.createElement("button");
-            this._deleteBtn.type = 'button';
-            this._deleteBtn.classList.add('card__img-delete');
-            this._element.insertBefore(this._deleteBtn, this._element.children[1]);
+        if (this._owner._id !== myId){
+            this._deleteBtn.style.display = "none";
         }
-        this._likes.forEach(userInfo => {
-            if (userInfo._id === ownerId){
-                this._cardLike.classList.add('card__like_black');
-            }
-        });
+        
+        this.setLikes(this._likes, myId);
         this._setEventListeners();
         return this._element;
     } 
@@ -51,14 +48,16 @@ export default class Card {
         return this._cardLike.classList.contains('card__like_black');
     }
 
-    addCardLike() {
-        this._cardLike.classList.add('card__like_black');
-        this._cardLikes.textContent = parseInt(this._cardLikes.textContent) + 1;
-    }
-
-    removeCardLike(){
+    setLikes(likes, myId){
+        this._likes = likes;
+        this._cardLikes.textContent = this._likes.length;
         this._cardLike.classList.remove('card__like_black');
-        this._cardLikes.textContent = parseInt(this._cardLikes.textContent) - 1;
+
+        this._likes.forEach(userInfo => {
+            if (userInfo._id === myId){
+                this._cardLike.classList.add('card__like_black');
+            }
+        });
     }
 
     getCardId(){
@@ -79,7 +78,7 @@ export default class Card {
             this._handleLikeCardClick(this);
         });
 
-        if(this._deleteBtn) {
+        if(this._deleteBtn.style.display !== "none") {
             this._deleteBtn.addEventListener('click', event => {
                 this._handleDeleteCardClick(this);
             });

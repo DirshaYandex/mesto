@@ -4,9 +4,9 @@
     background: transparent url('../../../images/trash.svg') center no-repeat;
     border: none;
     cursor: pointer;
-    position: relative;
-    top: -265px;
-    right: -250px;
+    position: absolute;
+    top: 1.125rem;
+    right: 0.9375rem;
 }
 
 .card__img-delete:hover {

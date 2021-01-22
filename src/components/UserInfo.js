@@ -21,11 +21,11 @@ export default class UserInfo {
         this._imageField.src = imageUrl;
     }
 
-    setUserId(user_id) {
-        this._user_id = user_id
+    setUserId(userId) {
+        this._userId = userId;
     }
 
     getUserId() {
-        return this._user_id
+        return this._userId;
     }
 }
